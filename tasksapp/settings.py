@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-9c*b)u1-$e+#y$d3x_a+19ptr_ngt^w1j@tft)(w5)xb38h8)*
 DEBUG = True
 
 #ALLOWED_HOSTS = ['.onrender.com']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.onrender.com', 'localhost']
 
 
 # Application definition
@@ -52,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'tasksapp.urls'
