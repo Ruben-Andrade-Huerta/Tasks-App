@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App de Tareas</title>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+      <a href="#">Task App</a>
+    </div>
+        <nav class="nav-menu">
+        <ul class="nav-links">
+            <li><a class="active" href="{% url 'index' %}">Home</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'tasks' %}">Lista de Tareas</a></li>
+            <li><a href="{% url 'completed_tasks' %}">Tareas Completadas</a></li>
+            <li><a href="{% url 'create_task' %}">Crear Tarea</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'signup' %}">SignUp</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <div class="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    </header>
+    
+    <main class="main">
+        {% block content %}
+        <!--Contenido principal de cada página-->
+        {% endblock %}
+    </main>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/table.js' %}"></script>
+</body>
+</html>

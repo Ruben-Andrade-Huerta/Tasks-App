@@ -1,0 +1,17 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+    <section class="main-content" style="width: 50%;">
+        <h1 style="font-size: 30px;">Modificar tarea</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+
+        <br>
+       <form action="{% url 'delete_task' task.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Delete</button>
+       </form>
+    </section>
+{% endblock %}

@@ -1,0 +1,1 @@
+This is a task management application in Django where you can create, delete, and complete tasks. It also has a signup and login section with email and password recovery.
