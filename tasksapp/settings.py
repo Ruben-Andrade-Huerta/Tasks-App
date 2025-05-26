@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -79,14 +80,15 @@ WSGI_APPLICATION = 'tasksapp.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gestion_tareas',
-        'USER': 'rubenandrade',  # Replace with your database user
-        'PASSWORD': 'nueva_contraseña',  # Replace with your database password
-        'HOST': 'localhost',  # Replace with your database host
-        'PORT': '5432',  # Replace with your database port
-    }
+     'default': dj_database_url.config(default='sqlite:///db.sqlite3')
+    #  'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'gestion_tareas',
+    #     'USER': 'rubenandrade',  # Replace with your database user
+    #     'PASSWORD': 'nueva_contraseña',  # Replace with your database password
+    #     'HOST': 'localhost',  # Replace with your database host
+    #     'PORT': '5432',  # Replace with your database port
+    # }
 }
 
 
